@@ -95,7 +95,7 @@ public class SplashScreen extends ScreenAdapter {
         // We set our body to dynamic, for something like ground which doesn't move we would set it to StaticBody
         bodyDef.type = BodyDef.BodyType.DynamicBody;
         // Set our body's starting position in the world
-        bodyDef.position.set(10f, 13f);
+        bodyDef.position.set(10f, 23f);
 
         // Create our body in the world using our body definition
         bc.body = world.createBody(bodyDef);
@@ -118,7 +118,6 @@ public class SplashScreen extends ScreenAdapter {
         // BodyDef and FixtureDef don't need disposing, but shapes do.
         circle.dispose();
 
-        bc.body = world.createBody(bodyDef);
         e.add(bc);
         return e;
     }
