@@ -4,13 +4,10 @@ import com.badlogic.ashley.core.Entity;
 import com.badlogic.ashley.core.PooledEngine;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.ScreenAdapter;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.*;
-import com.badlogic.gdx.utils.Array;
 import com.roaringcatgames.testgame.components.*;
 import com.roaringcatgames.testgame.systems.*;
 
@@ -70,7 +67,7 @@ public class GameScreen extends ScreenAdapter {
         StateComponent state = new StateComponent();
         state.set("DEFAULT");
         e.add(state);
-        RCGTextureComponent tc = new RCGTextureComponent();
+        TextureComponent tc = new TextureComponent();
         e.add(tc);
 
         TransformComponent tfc = new TransformComponent();

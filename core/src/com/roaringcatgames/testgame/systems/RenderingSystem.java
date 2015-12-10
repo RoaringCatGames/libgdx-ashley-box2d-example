@@ -9,7 +9,7 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Array;
-import com.roaringcatgames.testgame.components.RCGTextureComponent;
+import com.roaringcatgames.testgame.components.TextureComponent;
 import com.roaringcatgames.testgame.components.TransformComponent;
 
 import java.util.Comparator;
@@ -47,13 +47,13 @@ public class RenderingSystem extends SortedIteratingSystem {
     private Comparator<Entity> comparator;
     private OrthographicCamera cam;
 
-    private ComponentMapper<RCGTextureComponent> textureM;
+    private ComponentMapper<TextureComponent> textureM;
     private ComponentMapper<TransformComponent> transformM;
 
     public RenderingSystem(SpriteBatch batch) {
-        super(Family.all(TransformComponent.class, RCGTextureComponent.class).get(), new ZComparator());
+        super(Family.all(TransformComponent.class, TextureComponent.class).get(), new ZComparator());
 
-        textureM = ComponentMapper.getFor(RCGTextureComponent.class);
+        textureM = ComponentMapper.getFor(TextureComponent.class);
         transformM = ComponentMapper.getFor(TransformComponent.class);
 
         renderQueue = new Array<Entity>();
@@ -76,7 +76,7 @@ public class RenderingSystem extends SortedIteratingSystem {
         batch.begin();
 
         for (Entity entity : renderQueue) {
-            RCGTextureComponent tex = textureM.get(entity);
+            TextureComponent tex = textureM.get(entity);
             TransformComponent t = transformM.get(entity);
 
             if (tex.region == null || t.isHidden) {

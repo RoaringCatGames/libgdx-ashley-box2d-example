@@ -5,21 +5,21 @@ import com.badlogic.ashley.core.Entity;
 import com.badlogic.ashley.core.Family;
 import com.badlogic.ashley.systems.IteratingSystem;
 import com.roaringcatgames.testgame.components.AnimationComponent;
-import com.roaringcatgames.testgame.components.RCGTextureComponent;
+import com.roaringcatgames.testgame.components.TextureComponent;
 import com.roaringcatgames.testgame.components.StateComponent;
 
 public class AnimationSystem extends IteratingSystem {
 
-    ComponentMapper<RCGTextureComponent> tm;
+    ComponentMapper<TextureComponent> tm;
     ComponentMapper<AnimationComponent> am;
     ComponentMapper<StateComponent> sm;
 
     public AnimationSystem(){
-        super(Family.all(RCGTextureComponent.class,
+        super(Family.all(TextureComponent.class,
                 AnimationComponent.class,
                 StateComponent.class).get());
 
-        tm = ComponentMapper.getFor(RCGTextureComponent.class);
+        tm = ComponentMapper.getFor(TextureComponent.class);
         am = ComponentMapper.getFor(AnimationComponent.class);
         sm = ComponentMapper.getFor(StateComponent.class);
     }
@@ -31,7 +31,7 @@ public class AnimationSystem extends IteratingSystem {
         StateComponent state = sm.get(entity);
 
         if(ani.animations.containsKey(state.get())){
-            RCGTextureComponent tex = tm.get(entity);
+            TextureComponent tex = tm.get(entity);
             tex.region = ani.animations.get(state.get()).getKeyFrame(state.time, state.isLooping);
         }
 
