@@ -11,4 +11,14 @@ This is a starter project available to get up and running with libgdx using Box2
  7. An Asset utility class to setup your AssetManager loading, and retrieval of assets in one location (you'll want to add code to this file to expose more assets)
  8. A crude Screen dipatching pattern that can allow each screen to signal when it has ended and needs to move to the next. You can implement your own IScreenDispatcher or modify the existing to do more complex screen swapping.
  9. Added the required `gdx.reflect.include` options for Ashley Components and Systems so that the GWT Html build works.
+ 
+#Running
+
+The project was created with the libGDX [setup application](https://libgdx.badlogicgames.com/download.html), and is [gradle](https://docs.gradle.org/current/release-notes) based. You can import it into your IDE of choice as a Gradle project. 
+
+From the command line you can run the project:
+
+    git clone https://github.com/RoaringCatGames/libgdx-ashley-box2d-example.git
+    cd libgdx-ashley-box2d-example
+    ./gradlew desktop:run
 
