@@ -5,6 +5,8 @@ sourceCompatibility = 1.7
 
 sourceSets.main.java.srcDirs = [ "src/" ]
 
+//Allways pack before run
+tasks.assemble.dependsOn tasks.getByPath(":texture-packer:run")
 
 eclipse.project {
     name = appName + "-core"

@@ -62,3 +62,8 @@ build/
 
 ## OS Specific
 .DS_Store
+
+##Generated Assets
+android/assets/animations
+android/assets/sprites
+android/assets/loading

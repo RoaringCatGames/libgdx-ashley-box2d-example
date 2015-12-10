@@ -3,26 +3,27 @@ package com.roaringcatgames.testgame;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class BrownieBouncer extends Game {
 	private SpriteBatch batch;
 
-	private IScreenDispatcher screenDispatcher;
-	
+	private ScreenDispatcher screenDispatcher;
+
+    public AssetManager am;
+
 	@Override
 	public void create () {
-
+        am = Assets.load();
 		batch = new SpriteBatch();
 		screenDispatcher = new ScreenDispatcher();
         Screen splashScreen = new SplashScreen(batch, screenDispatcher);
-        ((ScreenDispatcher)screenDispatcher).AddScreen(splashScreen);
-
+        Screen gameScreen = new GameScreen(batch, screenDispatcher);
+        screenDispatcher.AddScreen(splashScreen);
+        screenDispatcher.AddScreen(gameScreen);
 		setScreen(splashScreen);
-
-		batch = new SpriteBatch();
-
 	}
 
 	@Override

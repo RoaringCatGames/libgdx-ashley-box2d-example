@@ -6,6 +6,7 @@ import com.badlogic.ashley.core.Family;
 import com.badlogic.ashley.systems.IntervalSystem;
 import com.badlogic.ashley.systems.IteratingSystem;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.utils.Array;
@@ -47,10 +48,9 @@ public class PhysicsSystem extends IteratingSystem {
                 TransformComponent tfm = tm.get(entity);
                 BodyComponent bodyComp = bm.get(entity);
                 Vector2 position = bodyComp.body.getPosition();
-                Gdx.app.log("Physics System", "position x: " + position.x + " Position y: " + position.y);
                 tfm.position.x = position.x;
                 tfm.position.y = position.y;
-                tfm.rotation = bodyComp.body.getTransform().getRotation();
+                tfm.rotation = bodyComp.body.getAngle() * MathUtils.radiansToDegrees;
             }
         }
 

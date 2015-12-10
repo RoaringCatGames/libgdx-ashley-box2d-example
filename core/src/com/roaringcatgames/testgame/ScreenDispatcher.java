@@ -35,7 +35,7 @@ public class ScreenDispatcher implements IScreenDispatcher {
             currentIndex++;
         }
 
-        if(screens.size() > currentIndex + 1){
+        if(screens.size() > currentIndex){
             return screens.get(currentIndex);
         }else{
             return screens.get(0);
