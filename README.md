@@ -20,5 +20,7 @@ From the command line you can run the project:
 
     git clone https://github.com/RoaringCatGames/libgdx-ashley-box2d-example.git
     cd libgdx-ashley-box2d-example
-    ./gradlew desktop:run
+    ./gradlew texture-packer:run desktop:run
+    
+NOTE: You only need to run the ```texture-packer:run``` target once after pulling down the project. If you add/update art assets in the texture-packer project, you'll need to re-run the ```texture-packer:run``` target
 
